@@ -4,14 +4,10 @@ FROM ubuntu:16.04
 #maintainer information
 LABEL maintainer="sriharsha.vathsavayi@csc.fi"
 
-# update the apt package manager
-RUN apt-get update     
-
-# install python
-RUN apt-get install -y python
-
-# install make
-RUN apt-get install -y build-essential
+# update the apt package manager and install python and make
+RUN apt-get update && apt-get install -y \
+    python \
+    build-essential
 
 # copy project to container 
 COPY ./ /opt/character_count/
